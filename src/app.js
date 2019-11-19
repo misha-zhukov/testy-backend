@@ -17,6 +17,7 @@ require('./passport');
 const authController = require('./api/common/auth/authController');
 const userController = require('./api/common/user/userController');
 const settingsController = require('./api/common/settings/settingsController');
+const dataController = require('./api/common/data/dataController');
 
 const SeedService = require('./api/seedService');
 const seedService = new SeedService();
@@ -49,6 +50,7 @@ seedService.checkAndSeed();
 app.use(`${root}/auth`, authController);
 app.use(`${root}/users`, auth, userController);
 app.use(`${root}/settings`, auth, settingsController);
+app.use(`${root}/data`, dataController);
 
 
 app.use(logErrors);
