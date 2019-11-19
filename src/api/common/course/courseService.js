@@ -12,7 +12,7 @@ class CourseService {
       .then(([data]) => {
         return data.toArray();
       });
-  }
+  }  
 }
 
 module.exports = CourseService;

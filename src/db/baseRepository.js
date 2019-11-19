@@ -35,6 +35,13 @@ class BaseRepository {
         .findOne({ _id: ObjectID(id) }));
   }
 
+  findByIdField(id) {
+    return this.dbClient
+      .then(db => db
+        .collection(this.collection)
+        .findOne({ id: id }));
+  }
+
   add(item) {
     return this.dbClient
       .then(db => db
