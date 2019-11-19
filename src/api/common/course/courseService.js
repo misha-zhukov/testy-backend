@@ -10,7 +10,7 @@ class CourseService {
       this.repository.list(),
     ])
       .then(([data]) => {
-        return data;
+        return data.toArray();
       });
   }
 }

@@ -29,8 +29,8 @@ module.exports = {
   },
 
   db: {
-    url: 'mongodb://localhost:27017/bundle-node',
-    name: 'bundle-node',
+    url: 'mongodb://localhost:27017/testy',
+    name: 'testy',
   },
 
   logger: {

@@ -7,7 +7,8 @@
     "dev": "./node_modules/nodemon/bin/nodemon.js ./src/app",
     "start:prod": "export NODE_ENV=production&&node ./src/app",
     "lint": "eslint --report-unused-disable-directives .",
-    "lint:fix": "eslint --fix ."
+    "lint:fix": "eslint --fix .",
+    "debug": "node --nolazy --inspect-brk=9228 ./src/app"
   },
   "repository": {
     "type": "git",
