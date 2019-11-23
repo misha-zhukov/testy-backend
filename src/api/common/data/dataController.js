@@ -17,4 +17,15 @@ router.get('/quiz/:id', (req, res) => {
   });
 });
 
+router.get('/course/:id', (req, res) => {
+  courseService.getCourseById(req.params.id).then(data => {
+    return res.send(data);
+  });
+});
+
+router.post('/course/update', (req, res) => {
+  let ret = courseService.updateCourse(req.body);
+  res.send(ret);
+});
+
 module.exports = router;

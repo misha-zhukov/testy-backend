@@ -39,7 +39,7 @@ class BaseRepository {
     return this.dbClient
       .then(db => db
         .collection(this.collection)
-        .findOne({ id: id }));
+        .findOne({ id }));
   }
 
   add(item) {
