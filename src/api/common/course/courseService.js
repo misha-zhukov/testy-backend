@@ -24,6 +24,15 @@ class CourseService {
       });
   }
 
+  getLessonByIds(courseId, lessonId) {
+    return Promise.all([
+      this.repository.findLessonByIds(courseId, lessonId),
+    ])
+      .then(([course]) => {
+        return course.lessons[0];
+      });
+  }
+
   updateCourse(course) {
     const id = course._id;
     delete course._id;
@@ -32,7 +41,7 @@ class CourseService {
         lesson._id = new ObjectID();
       }
     });
-    
+
     return Promise.all([
       this.repository.edit(id, course),
     ])

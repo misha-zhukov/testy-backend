@@ -23,6 +23,12 @@ router.get('/course/:id', (req, res) => {
   });
 });
 
+router.get('/course/:courseId/lesson/:lessonId', (req, res) => {
+  courseService.getLessonByIds(req.params.courseId, req.params.lessonId).then(data => {
+    return res.send(data);
+  });
+});
+
 router.post('/course/update', (req, res) => {
   let ret = courseService.updateCourse(req.body);
   res.send(ret);
