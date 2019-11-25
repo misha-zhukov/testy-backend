@@ -34,12 +34,21 @@ class CourseService {
   }
 
   updateCourse(course) {
-    const id = course._id;
+    let id = course._id;
+    if(!id) {
+      id = new ObjectID();
+    }
     delete course._id;
     course.lessons.forEach(lesson => {
       if (!lesson._id) {
         lesson._id = new ObjectID();
       }
+
+      lesson.steps.forEach(step => {
+        if (!step._id) {
+          step._id = new ObjectID();
+        }
+      });
     });
 
     return Promise.all([
