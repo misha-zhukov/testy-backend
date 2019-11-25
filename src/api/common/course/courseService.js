@@ -39,17 +39,23 @@ class CourseService {
       id = new ObjectID();
     }
     delete course._id;
-    course.lessons.forEach(lesson => {
-      if (!lesson._id) {
-        lesson._id = new ObjectID();
-      }
+    if(course.lessons) {
 
-      lesson.steps.forEach(step => {
-        if (!step._id) {
-          step._id = new ObjectID();
+      course.lessons.forEach(lesson => {
+        if (!lesson._id) {
+          lesson._id = new ObjectID();
+        }
+
+        if(lesson.steps) {
+          lesson.steps.forEach(step => {
+            if (!step._id) {
+              step._id = new ObjectID();
+            }
+          });
         }
       });
-    });
+    }
+
 
     return Promise.all([
       this.repository.edit(id, course),
