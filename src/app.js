@@ -40,7 +40,7 @@ function clientErrorHandler(err, req, res, next) {
 
 app.use(cors());
 app.use(bodyParser.json());
-app.use(express.static('public'));
+app.use('/api', express.static('public'));
 
 const auth = passport.authenticate('jwt', { session: false });
 
